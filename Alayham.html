@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technic Heroes | تكنك هيروز - قادة التكنولوجيا المستقبلية</title>
+    <meta name="description" content="Technic Heroes - شركة رائدة في الأمن السيبراني، الذكاء الاصطناعي، وتطوير البرمجيات. نحول أفكارك إلى حلول رقمية مبتكرة.">
+    
+    <!-- الروابط الأساسية -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #00d9ff;
+            --secondary-color: #0066cc;
+            --dark-color: #0a0a0a;
+            --light-dark: #1a1a1a;
+            --text-light: #e0e0e0;
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background: var(--dark-color);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* التصميم الأساسي */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        /* الهيدر */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(10, 10, 10, 0.98);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* الهيرو سيكشن */
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.9)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .btn-primary-custom {
+            background: var(--gradient);
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 40px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 217, 255, 0.4);
+        }
+
+        /* قسم التقنيات المتقدمة */
+        .tech-showcase {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a2e);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .tech-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.3);
+            border-color: var(--primary-color);
+        }
+
+        .tech-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            transition: all 0.5s ease;
+        }
+
+        .tech-card:hover .tech-image {
+            transform: scale(1.1);
+        }
+
+        .tech-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tech-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        
+        /* الخدمات */
+        .service-card {
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 217, 255, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: rgb(177, 31, 31);
+        }
+        
+        /* معرض الأعمال */
+        .project-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 30px 20px 20px;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+        }
+
+
+           /* فريق العمل */
+        .team-card {
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 217, 255, 0.2);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 25px 20px;
+        }
+
+
+        /* نموذج الاتصال */
+        .contact-form {
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 0 0 0.2rem rgba(0, 217, 255, 0.25);
+        }
+
+        .form-label {
+            color: var(--text-light);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        /* رسائل التنبيه */
+        .alert {
+            border: none;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+        }
+
+        .alert-success {
+            background: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+            border-left: 4px solid #28a745;
+        }
+
+        .alert-danger {
+            background: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+            border-left: 4px solid #dc3545;
+        }
+
+        /* الفوتر */
+        footer {
+            background: linear-gradient(135deg, #0a0a0a, #000);
+            padding: 80px 0 30px;
+            border-top: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            color: rgb(70, 129, 180);
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--gradient);
+            transform: translateY(-5px);
+            color: rgb(72, 100, 226);
+        }
+
+        /* تأثيرات متحركة */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, -15px); }
+            100% { transform: translate(0, 0px); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 217, 255, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 217, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 217, 255, 0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .contact-form {
+                padding: 25px 20px;
+            }
+            
+            .tech-image {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand logo" href="#">Technic Heroes</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="#home">الرئيسية</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#tech">تقنياتنا</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#services">خدماتنا</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#projects">أعمالنا</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact">اتصل بنا</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- الهيرو سيكشن -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="hero-title" data-aos="fade-up">قادة التكنولوجيا المستقبلية</h1>
+                        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                          ندمج الذكاء الاصطناعي، الأمن السيبراني، والروبوتات لخلق عالم رقمي ذكي وآمن
+                        نحن فريق Technic Heroes بقيادة 1/أيهم ناصرالجريدي 2/ قصي عبادالحطام
+                            .هدفنا هو خلق عالم رقمي ذكي وآمن يلبي احتياجات العصر الحديث.
+                        </p>
+                        <div data-aos="fade-up" data-aos-delay="400">
+                            <a href="#contact" class="btn btn-primary-custom me-3">اطلب خدمة</a>
+                            <a href="#tech" class="btn btn-outline-light">اكتشف التقنيات</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center" data-aos="fade-left">
+                        <img src="C:\Users\HP\Downloads\ayham_portfolio_website\Ayham_pro\صورة واتساب بتاريخ 1447-04-16 في 23.07.29_bb83d163.jpg" 
+                             alt="التقنية المتقدمة" class="img-fluid floating">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<div style="
+    background: rgba(0, 217, 255, 0.08);
+    padding: 20px;
+    border-radius: 15px;
+    border-right: 4px solid #00d9ff;
+    margin: 20px 0;
+    backdrop-filter: blur(4px);
+">
+
+<p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200"
+   style="font-size: 0.9rem; line-height: 1.6; color: #e0e0e0; margin: 0;">
+   نعمل في Technic Heroes على تطوير حلول متقدمة تجمع بين الابتكار والقوة، لنقدّم تقنيات قادرة على خدمة الأفراد والشركات بفعالية عالية.
+   نطمح إلى أن نكون جزءًا من مستقبل يعتمد على الذكاء، الحماية، والأتمتة، من خلال مشاريع تلبي متطلبات العالم الرقمي المتسارع.
+   نؤمن أن التكنولوجيا ليست مجرد أدوات، بل رسالة نستخدمها لصناعة واقع أفضل، وتحويل الأفكار إلى إنجازات ملموسة.
+</p>
+
+</div>
+
+<div class="team-intro" data-aos="fade-up" data-aos-delay="300" 
+     style="background: rgba(0, 217, 255, 0.1); padding: 20px; border-radius: 15px; 
+            border-right: 4px solid #00d9ff; margin: 20px 0;">
+    
+    <h4 style="color: #00d9ff; margin-bottom: 15px; font-size: 1.2rem;">
+        <i class="fas fa-users me-2"></i>فريق Technic Heroes
+    </h4>
+
+    <p style="color: #e0e0e0; margin-bottom: 8px; line-height: 1.2; font-size: 0.9rem;">
+        <strong>بقيادة:</strong> 1/ أيهم ناصر الجريدي - 2/ قصي عباد الحطام
+    </p>
+
+    <p style="color: #e0e0e0; line-height: 1.2; margin: 0; font-size: 0.9rem;">
+        <strong>هدفنا:</strong> خلق عالم رقمي ذكي وآمن يلبي احتياجات العصر الحديث
+    </p>
+</div>
+
+    <!-- قسم التقنيات المتقدمة -->
+    <section class="section-padding tech-showcase" id="tech">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>تقنياتنا المتقدمة</h2>
+                <p class="text-light">أحدث التقنيات والابتكارات في عالم التكنولوجيا</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tech-card">
+                        <img src="C:\Users\HP\Downloads\ayham_portfolio_website\Ayham_pro\صورة واتساب بتاريخ 1447-04-16 في 22.43.12_e4f34051.jpg" alt="التقنيات الرقمية المتكاملة" class="tech-image">
+                        <h3 class="tech-title">الحلول الرقمية المتكاملة</h3>
+                        <p class="tech-description">
+                            نقدم مجموعة شاملة من الحلول الرقمية المتقدمة تشمل التقنيات المالية، 
+                            الأنظمة الرقمية، الحلول المؤسسية، والخدمات المتكاملة التي تلبي 
+                            احتياجات العصر الرقمي.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tech-card">
+                        <img src="C:\Users\HP\Downloads\ayham_portfolio_website\Ayham_pro\صورة واتساب بتاريخ 1447-04-16 في 23.10.08_62987ed1.jpg" alt="تحليلات البيانات والذكاء الاصطناعي" class="tech-image">
+                        <h3 class="tech-title">تحليلات البيانات والذكاء الاصطناعي</h3>
+                        <p class="tech-description">
+                            نستخدم أحدث تقنيات تحليل البيانات والتعلم الآلي لتقديم رؤى عميقة 
+                            وحلول ذكية. نظامنا المتقدم يمكنه معالجة البيانات وتحويلها إلى 
+                            قرارات استراتيجية دقيقة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <!-- الخدمات -->
+    <section class="section-padding" id="services">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>خدماتنا المتكاملة</h2>
+                <p class="text-light">نقدم حلولاً تقنية شاملة تلبي جميع احتياجاتك الرقمية</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <i class="fas fa-shield-alt service-icon"></i>
+                        <h3 class="service-title">الأمن السيبراني</h3>
+                        <p class="text-light">حلول أمنية متكاملة لحماية بياناتك من التهديدات الإلكترونية</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <i class="fas fa-robot service-icon"></i>
+                        <h3 class="service-title">الذكاء الاصطناعي</h3>
+                        <p class="text-light">تطوير أنظمة ذكاء اصطناعي متقدمة لأتمتة عملياتك</p>
+                    </div>
+                </div>
+                 <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <i class="fas fa-wifi service-icon"></i>
+                        <h3 class="service-title">تصميم الشبكات</h3>
+                        <p class="text-light">تصميم شبكات عبر Packet Tracer: VLAN, Routing وغيرها.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <i class="fas fa-code service-icon"></i>
+                        <h3 class="service-title">تطوير البرمجيات</h3>
+                        <p class="text-light">برمجة تطبيقات ويب وجوال مخصصة بجودة عالمية</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                        <i class="fas fa-chart-line service-icon"></i>
+                        <h3 class="service-title">تحليل البيانات</h3>
+                        <p class="text-light">تحليل البيانات الضخمة واستخراج رؤى استراتيجية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- معرض الأعمال -->
+    <section class="section-padding bg-dark" id="projects">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>أعمالنا البارزة</h2>
+                <p class="text-light">نماذج من مشاريعنا الناجحة في مختلف المجالات التقنية</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                             alt="نظام الذكاء الاصطناعي" class="project-image">
+                        <div class="project-overlay">
+                            <h4 class="text-white">نظام ذكاء اصطناعي متقدم</h4>
+                            <p class="text-light">منصة متكاملة للتعلم الآلي وتحليل البيانات</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                             alt="الأمن السيبراني" class="project-image">
+                        <div class="project-overlay">
+                            <h4 class="text-white">منصة أمن سيبراني شاملة</h4>
+                            <p class="text-light">حلول حماية متكاملة للشركات والمؤسسات</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                             alt="الروبوتات" class="project-image">
+                        <div class="project-overlay">
+                            <h4 class="text-white">روبوتات صناعية متطورة</h4>
+                            <p class="text-light">أنظمة روبوتية لأتمتة العمليات الصناعية</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section class="section-padding" id="team">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>فريقنا الاحترافي</h2>
+                <p class="text-light">خبراء ومطورون بمهارات عالمية لتحقيق رؤيتك</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-card">
+                        <img src="C:\Users\HP\Downloads\ayham_portfolio_website\Ayham_pro\صورة واتساب بتاريخ 1447-04-16 في 22.43.36_d9261b05.jpg" 
+                             alt="أيهم ناصر" class="team-image">
+                        <div class="team-info">
+                            <h4>أيهم ناصر</h4>
+                            <p class="text-primary">مدير تقني</p>
+                            <p class="text-light">خبير في الأمن السيبراني والذكاء الاصطناعي</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-card">
+                        <img src="C:\Users\HP\Downloads\ayham_portfolio_website\Ayham_pro\صورة واتساب بتاريخ 1447-04-16 في 23.10.08_62987ed1.jpg" 
+                             alt="محمد أحمد" class="team-image">
+                        <div class="team-info">
+                            <h4>ايهم ناصر</h4>
+                            <p class="text-primary">مطور برمجيات</p>
+                            <p class="text-light">متخصص في تطوير تطبيقات الويب والجوال</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-card">
+                        <img src="C:\Users\HP\Downloads\ayham_portfolio_website\Ayham_pro\صورة واتساب بتاريخ 1447-04-16 في 16.02.44_ca212c0e.jpg" 
+                             alt="ايهم الجريدي" class="team-image">
+                        <div class="team-info">
+                            <h4>ايهم ناصر</h4>
+                            <p class="text-primary">محللة بيانات</p>
+                            <p class="text-light">خبيرة في تحليل البيانات والذكاء الاصطناعي</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-card">
+                        <img src="C:\Users\HP\Downloads\ayham_portfolio_website\Ayham_pro\صورة واتساب بتاريخ 1447-04-16 في 22.43.36_ce55e1d5.jpg" 
+                             alt="فاطمة علي" class="team-image">
+                        <div class="team-info">
+                            <h4>قصي الحطام</h4>
+                            <p class="text-primary">مصممة واجهات</p>
+                            <p class="text-light">متخصصة في تصميم تجارب المستخدم</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- الاتصال -->
+    <section class="section-padding bg-dark" id="contact">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>اتصل بنا</h2>
+                <p class="text-light">نحن هنا لتحويل أفكارك إلى واقع ملموس</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-form" data-aos="fade-up">
+                        <!-- رسالة النجاح -->
+                        <div id="successMessage" class="alert alert-success d-none">
+                            <i class="fas fa-check-circle me-2"></i>
+                            تم إرسال طلبك بنجاح! سنتواصل معك قريباً.
+                        </div>
+
+                        <!-- رسالة الخطأ -->
+                        <div id="errorMessage" class="alert alert-danger d-none">
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            حدث خطأ في الإرسال. يرجى المحاولة مرة أخرى.
+                        </div>
+
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label">الاسم الكامل *</label>
+                                    <input type="text" class="form-control" id="clientName" placeholder="أدخل اسمك الكامل" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">البريد الإلكتروني *</label>
+                                    <input type="email" class="form-control" id="clientEmail" placeholder="أدخل بريدك الإلكتروني" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label">رقم الهاتف *</label>
+                                    <input type="tel" class="form-control" id="clientPhone" placeholder="أدخل رقم هاتفك" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">نوع الخدمة المطلوبة *</label>
+                                    <select class="form-control" id="serviceType" required>
+                                        <option value="">اختر الخدمة المطلوبة</option>
+                                        <option value="الأمن السيبراني">الأمن السيبراني</option>
+                                        <option value="الذكاء الاصطناعي">الذكاء الاصطناعي</option>
+                                        <option value="تطوير البرمجيات">تطوير البرمجيات</option>
+                                        <option value="تحليل البيانات">تحليل البيانات</option>
+                                        <option value="الروبوتات">الروبوتات</option>
+                                        <option value="استشارة تقنية">استشارة تقنية</option>
+                                        <option value="أخرى">أخرى</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">وصف المشروع أو الخدمة المطلوبة *</label>
+                                <textarea class="form-control" id="projectDescription" rows="5" placeholder="أخبرنا بالتفصيل عن مشروعك أو الخدمة التي تحتاجها..." required></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button type="submit" class="btn btn-primary-custom w-100 mb-3 pulse">
+                                    <i class="fas fa-paper-plane me-2"></i>إرسال الطلب عبر البريد
+                                </button>
+                                <button type="button" id="whatsappBtn" class="btn btn-success w-100">
+                                    <i class="fab fa-whatsapp me-2"></i>إرسال الطلب عبر واتساب
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="logo mb-3">Technic Heroes</h3>
+                    <p class="text-light">شركة رائدة في تقديم حلول التقنية المتقدمة والخدمات الرقمية المبتكرة.</p>
+                    <div class="social-links mt-4">
+                        <a href="https://www.facebook.com/share/17Ta8X31zz/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/ayhamaljridi378/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="text-white mb-3">روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-light text-decoration-none">الرئيسية</a></li>
+                        <li><a href="#tech" class="text-light text-decoration-none">تقنياتنا</a></li>
+                        <li><a href="#services" class="text-light text-decoration-none">خدماتنا</a></li>
+                        <li><a href="#projects" class="text-light text-decoration-none">أعمالنا</a></li>
+                        <li><a href="#contact" class="text-light text-decoration-none">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-white mb-3">خدماتنا</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">الأمن السيبراني</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">الذكاء الاصطناعي</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">تطوير البرمجيات</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">تحليل البيانات</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">الروبوتات</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5 class="text-white mb-3">معلومات الاتصال</h5>
+                    <ul class="list-unstyled text-light">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i> اليمن / صنعاء</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2 text-primary"></i> +967738181304</li>
+                         <li class="mb-2"><i class="fas fa-phone me-2 text-primary"></i> +967771381814</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> ayhmaljridi378@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center py-3">
+                <p class="text-light mb-0">&copy; 2024 Technic Heroes. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- الأزرار العائمة -->
+    <a href="https://wa.me/+967771381814" class="btn btn-success rounded-circle pulse" 
+       style="position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; z-index: 1000;">
+        <i class="fab fa-whatsapp fa-lg"></i>
+    </a>
+
+    <!-- السكريبتات -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- إضافة EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script>
+    // تهيئة AOS
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+
+    // تأثير الهيدر عند التمرير
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // 🔧 🔧 🔧 إعداداتك 🔧 🔧 🔧
+    const EMAILJS_CONFIG = {
+        SERVICE_ID: 'service_6pthf8x', // استبدل بمعرف الخدمة الحقيقي
+        TEMPLATE_ID: 'template_h2qp2xv', // استبدل بمعرف القالب الحقيقي
+        PUBLIC_KEY: 'qZYgW5XSmXoS5ze3Q' // استبدل بالمفتاح العام الحقيقي
+    };
+
+    const WHATSAPP_NUMBER = '+967738181304';
+    const YOUR_EMAIL = 'ayhamaljridi378@gmail.com';
+
+    // تهيئة EmailJS
+    if (EMAILJS_CONFIG.PUBLIC_KEY) {
+        emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+    }
+
+    // عناصر النموذج
+    const contactForm = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    const whatsappBtn = document.getElementById('whatsappBtn');
+
+    // إرسال النموذج عبر البريد الإلكتروني
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // جمع بيانات النموذج
+        const formData = {
+            name: document.getElementById('clientName').value,
+            email: document.getElementById('clientEmail').value,
+            phone: document.getElementById('clientPhone').value,
+            service: document.getElementById('serviceType').value,
+            message: document.getElementById('projectDescription').value,
+            to_email: YOUR_EMAIL
+        };
+
+        // تحقق من الحقول
+        if (!formData.name || !formData.email || !formData.phone || !formData.service || !formData.message) {
+            alert('يرجى ملء جميع الحقول المطلوبة');
+            return;
+        }
+
+        try {
+            // إظهار تحميل
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>جاري الإرسال...';
+            submitBtn.disabled = true;
+
+            // إرسال البريد الإلكتروني
+            await emailjs.send(
+                EMAILJS_CONFIG.SERVICE_ID,
+                EMAILJS_CONFIG.TEMPLATE_ID,
+                formData
+            );
+
+            // إظهار رسالة النجاح
+            showMessage(successMessage);
+            contactForm.reset();
+
+        } catch (error) {
+            console.error('خطأ في الإرسال:', error);
+            showMessage(errorMessage);
+        } finally {
+            // إعادة زر الإرسال إلى وضعه الطبيعي
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>إرسال الطلب عبر البريد';
+            submitBtn.disabled = false;
+        }
+    });
+
+    // إرسال عبر واتساب
+    whatsappBtn.addEventListener('click', function() {
+        const name = document.getElementById('clientName').value;
+        const email = document.getElementById('clientEmail').value;
+        const phone = document.getElementById('clientPhone').value;
+        const service = document.getElementById('serviceType').value;
+        const message = document.getElementById('projectDescription').value;
+
+        if (!name || !email || !phone || !service || !message) {
+            alert('يرجى ملء جميع الحقول المطلوبة أولاً');
+            return;
+        }
+
+        const whatsappText = `
+طلب خدمة جديد من موقع Technic Heroes:
+
+👤 الاسم: ${name}
+📧 البريد: ${email}
+📞 الهاتف: ${phone}
+🛠 الخدمة: ${service}
+📝 الوصف: ${message}
+
+---
+تم الإرسال عبر الموقع الإلكتروني
+`.trim();
+
+        const encodedText = encodeURIComponent(whatsappText);
+        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`;
+        
+        window.open(whatsappUrl, '_blank');
+    });
+
+    // دالة لعرض الرسائل
+    function showMessage(messageElement) {
+        // إخفاء جميع الرسائل أولاً
+        successMessage.classList.add('d-none');
+        errorMessage.classList.add('d-none');
+        
+        // إظهار الرسالة المطلوبة
+        messageElement.classList.remove('d-none');
+        
+        // إخفاء الرسالة بعد 5 ثواني
+        setTimeout(() => {
+            messageElement.classList.add('d-none');
+        }, 5000);
+    }
+
+    // التمرير السلس
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>
